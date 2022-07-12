@@ -4,7 +4,9 @@ export const Header = styled.header`
   z-index: 1;
   position: fixed;
   width: 100vw;
-  background-color: ${(props) => props.theme.colors.nav.bg};
+  background-color: ${(props) =>
+    props.bgColor ? "transparent" : props.theme.colors.nav.bg};
+  filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.5));
 
   nav {
     display: grid;
@@ -22,16 +24,20 @@ export const Header = styled.header`
       align-items: center;
 
       li {
-        color: ${(props) => props.theme.colors.nav.text};
+        color: ${(props) =>
+          props.bgColor ? "#fff" : props.theme.colors.nav.text};
         font-weight: 300;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
-        border-color: ${(props) => props.theme.colors.nav.hover};
+        border-color: ${(props) =>
+          props.bgColor ? "#fff" : props.theme.colors.nav.hover};
         border-radius: 2vw;
         padding: 0.8vw;
 
         &:hover {
-          border: 2px solid ${(props) => props.theme.colors.nav.hover};
+          border: 2px solid
+            ${(props) =>
+              props.bgColor ? "#fff" : props.theme.colors.nav.hover};
           padding: 0.8vw;
         }
       }
